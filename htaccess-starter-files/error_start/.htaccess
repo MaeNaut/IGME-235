@@ -1,0 +1,2 @@
+ErrorDocument 404 /hp5817/235/error/error.html
+DirectoryIndex noterror.html

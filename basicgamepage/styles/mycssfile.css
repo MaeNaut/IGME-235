@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap');
+
+* {
+    color: white;
+}
+h1 {
+    font-size: 100px;
+    font-family: 'Saira Condensed', sans-serif;
+}
+h2 {
+    font-family: 'Saira Condensed', sans-serif;
+}
+body
+{
+    background-color: black;
+}
+p {
+    margin-left: 20px;
+}
+blockquote { 
+    background-color: tomato;
+    padding: 1rem;
+}
