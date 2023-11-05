@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Phrases</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header><h1>What In the World Doesn't Make Sense?</h1></header>
+
+        <h2></h2>
+    
+        <button type="button">What else?</button>
+    
+        <footer>Copyright</footer>
+    </div>
+
+    <script>
+        document.querySelector("footer").innerHTML = "Copyright " + new Date().getFullYear() +" Hyunwoo Park";
+
+        let h2 = document.querySelector("h2");
+        let button = document.querySelector("button");
+
+        let phraseList =
+        [
+            "BONELESS PIZZA!!!!",
+            "SOAKED FIRE!!!!",
+            "HARD WATER!!!!",
+            "27 INCH AIR!!!!",
+            "RED MUSIC!!!!"
+        ]
+
+        function displayQuote()
+        {
+            let randNum = Math.floor(Math.random() * phraseList.length);
+            {
+                h2.innerHTML = phraseList[randNum];
+            }
+        }
+
+        button.addEventListener("click", displayQuote);
+        window.onload = displayQuote;
+    </script>
+</body>
+</html>

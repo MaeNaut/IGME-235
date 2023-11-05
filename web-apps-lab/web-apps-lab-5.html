@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Web Apps-5</title>
+	<style>
+		body{
+			font-family:sans-serif;
+		}
+		#colorform{
+			background-color:#dfecdf;
+			color: #111;
+			padding:1em;width:400px;
+		}
+		#colorform p#info{
+			background-color:white;
+			color: black;
+			width:300px;
+			height:100px;
+			padding:.5em;
+		}
+		
+		#colorform legend{ 
+			font-weight:bold;
+			font-size:1.2em;
+		}
+	</style>
+</head>
+<body>
+
+<div id="colorform">
+	<legend>Choose your favorite color!</legend>
+	<p><input type="radio" name="colorGroup" id="colorGroupRed" value="red" /> Red</p>
+	<p><input type="radio" name="colorGroup" id="colorGroupGreen" value="green" /> Green</p>
+	<p><input type="radio" name="colorGroup" id="colorGroupBlue" value="blue" /> Blue</p>
+	<p><button id="colorButton" type="button">Submit</button></p>
+	<p id="info"></p>
+</div>
+
+<script>
+	let legend = document.querySelector("legend");
+	let checkers = document.querySelectorAll("input");
+	let colorButton = document.getElementById("colorButton");
+	let info = document.getElementById("info");
+
+	function selectColor(e)
+	{
+		info.innerHTML = "You have selected \"" + e.target.value + "\"!";
+	}
+	function submitColor()
+	{
+		for (let check of checkers)
+		{
+			if (check.checked)
+			{
+				legend.style.color = check.value;
+				info.innerHTML = "Your FINAL CHOICE is \"" + check.value + "\"!";
+				break;
+			}
+		}
+	}
+
+	for (let check of checkers)
+	{
+		check.addEventListener("click", selectColor);
+	}
+	colorButton.addEventListener("click", submitColor);
+</script>
+</body>
+</html>

@@ -35,10 +35,11 @@ let colors = ["red","green","blue","purple","pink"];
 let foods = ["hamburger","butter chicken","chilli soup"];
 
 // 3.
+
 let colorsList = document.getElementById("colorsList");
 for (let i = 0; i < colors.length; i++)
 {
-    let li = document.createElement('li');
+	let li = document.createElement('li');
     li.innerText = colors[i];
     colorsList.appendChild(li);
 }
@@ -47,7 +48,7 @@ for (let i = 0; i < colors.length; i++)
 let foodsList = document.getElementById("foodsList");
 for (let food of foods)
 {
-    let li = document.createElement('li');
+	let li = document.createElement('li');
     li.innerText = food;
     foodsList.appendChild(li);
 }
@@ -60,6 +61,16 @@ let links = {
 		"New Media Club" : "http://newmediaclub.cias.rit.edu"
 	}
 
+let linksList = document.getElementById("linksList");
+for (let link in links)
+{
+	let li = document.createElement('li');
+	let a = document.createElement('a');
+	a.innerText = link;
+	a.href = links[link];
+	linksList.appendChild(li);
+	li.appendChild(a);
+}
 </script>
 </body>
 </html>
