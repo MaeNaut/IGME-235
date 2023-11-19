@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+ 	<title>Giphy Finder</title>
+    <link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="left">
+			<div id="aa">
+				<header>
+					<h1>GIPHY Finder</h1>
+				</header>
+				
+				<div id="searchform">
+					<input id="searchterm" type="text" placeholder="Search for GIF" autofocus>
+					<button type="button" id="search" onclick="searchButtonClicked()"><i class="fa-solid fa-magnifying-glass"></i></button>
+				</div>
+				
+				Results per page: 
+				<select id="limit">
+					<option value="24" selected>24</option>
+					<option value="48">48</option>
+					<option value="72">72</option>
+					<option value="96">96</option>
+				</select>
+				Maximum Rating: 
+				<select id="rating">
+					<option value="" selected></option>
+					<option value="g">G</option>
+					<option value="pg">PG</option>
+					<option value="pg-13">PG13</option>
+					<option value="r">R</option>
+				</select>
+			</div>
+		</div>
+	
+		<div id="right">
+			<img src="images/pikachu_search.gif" alt="Detective Pikachu searching" id="rightplaceholder">
+
+			<div id="content"></div>
+
+			<button id="showmore" onclick="showmoreButtonClicked()">Show more    <i class="fa-solid fa-angle-down"></i></button>
+		</div>
+	</div>
+
+	<script>
+		let input = document.querySelector("#searchterm");
+		input.addEventListener("keypress", function(event) {
+			if (event.key === "Enter") {
+				input.blur();
+				event.preventDefault();
+				document.querySelector("#search").click();
+			}
+		});
+	</script>
+
+	<script>
+		const searchField = document.querySelector("#searchterm");
+		const limitSelect = document.querySelector("#limit");
+		const ratingSelect = document.querySelector("#rating");
+		const prefix = "hp5817-";
+		const termKey = prefix + "term";
+		const limitKey = prefix + "limit";
+		const ratingKey = prefix + "rating";
+
+		const storedTerm = localStorage.getItem(termKey);
+		const storedLimit = localStorage.getItem(limitKey);
+		const storedRating = localStorage.getItem(ratingKey);
+
+		if (storedTerm)
+		{
+			searchField.value = storedTerm;
+		}
+		else
+		{
+			searchField.value = "";
+		}
+		if (storedLimit)
+		{
+			limitSelect.querySelector(`option[value='${storedLimit}']`).selected = true;
+		}
+		if (storedRating)
+		{
+			ratingSelect.querySelector(`option[value='${storedRating}']`).selected = true;
+		}
+
+		searchField.onchange = e=>{ localStorage.setItem(termKey, e.target.value); };
+		limitSelect.onchange = e=>{ localStorage.setItem(limitKey, e.target.value); };
+		ratingSelect.onchange = e=>{ localStorage.setItem(ratingKey, e.target.value); };
+	</script>
+</body>
+</html>
