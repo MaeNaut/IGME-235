@@ -10,34 +10,33 @@
 <body>
 	<div id="wrapper">
 		<div id="left">
-			<div id="aa">
-				<header>
-					<h1>GIPHY Finder</h1>
-				</header>
-				
-				<div id="searchform">
-					<input id="searchterm" type="text" placeholder="Search for GIF" autofocus>
-					<button type="button" id="search" onclick="searchButtonClicked()"><i class="fa-solid fa-magnifying-glass"></i></button>
-				</div>
-				
-				Results per page: 
-				<select id="limit">
-					<option value="24" selected>24</option>
-					<option value="48">48</option>
-					<option value="72">72</option>
-					<option value="96">96</option>
-				</select>
-				Maximum Rating: 
-				<select id="rating">
-					<option value="" selected></option>
-					<option value="g">G</option>
-					<option value="pg">PG</option>
-					<option value="pg-13">PG13</option>
-					<option value="r">R</option>
-				</select>
+			<header>
+				<h1>GIPHY Finder</h1>
+			</header>
+			
+			<div id="searchform">
+				<input id="searchterm" type="search" results="5" placeholder="Search for GIF" autofocus>
+				<button type="button" id="search" onclick="searchButtonClicked()"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
+			
+			Results per page: 
+			<select id="limit">
+				<option value="24" selected>24</option>
+				<option value="48">48</option>
+				<option value="72">72</option>
+				<option value="96">96</option>
+			</select>
+			Maximum Rating: 
+			<select id="rating">
+				<option value="g">G</option>
+				<option value="pg" selected>PG</option>
+				<option value="pg-13">PG13</option>
+				<option value="r">R</option>
+			</select><br>
+			
+			<button type="button" id="trending" onclick="searchTrending()">Trending <i class="fa-solid fa-arrow-trend-up"></i></button>
 		</div>
-	
+
 		<div id="right">
 			<img src="images/pikachu_search.gif" alt="Detective Pikachu searching" id="rightplaceholder">
 

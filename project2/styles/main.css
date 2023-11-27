@@ -3,6 +3,7 @@
 
 *{
     font-family: 'Manrope', sans-serif;
+    font-size: 16px;
     text-align: center;
 }
 
@@ -27,6 +28,11 @@ body {
 #right {
     background-color: #222;
     overflow: scroll;
+}
+#rightplaceholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* hide scrollbar of search results */
@@ -83,18 +89,31 @@ header h1{
     background: #ff8888;
 }
 
+select {
+    background-color: white;
+    border: none;
+    outline: none;
+    margin: 1.5em 0;
+}
 option {
     text-align: left;
 }
 
-#rightplaceholder {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+#trending {
+    color: white;
+    font-size: 20px;
+    background-color: #333;
+    border: none;
+    outline: none;
+    border-radius: 2em;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
 }
-
-#status{
-    font-style: italic;
+#trending:hover {
+    background-color: #444;
+}
+#trending:active {
+    background-color: #555;
 }
 
 #content {
